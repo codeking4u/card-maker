@@ -7,7 +7,7 @@
 	@foreach($card as $card)
 	<div class="main-card-ctn">
 	    <div class="main-card">
-	    	<img src="{{ asset('storage/publish/'.$card->image_name) }}">
+            <canvas id="card_canvas" data-src="{{ asset('storage/publish/'.$card->image_name) }}" width="600" height="800"></canvas>
 	    </div>
 	    <div class="main-card-info">
 	    	<p class="bold">Created By: Sngn123213</p>
@@ -16,6 +16,7 @@
 	    	<h1>{{ $card->image_title }}</h1>
 	    	<p class="bold">Description:</p>
 	    	<h2>{{ $card->image_description }}</h2>
+            <input type="text" name="heading" id="heading">
 	    </div>
 	</div>
     <div class="button-ctn">
