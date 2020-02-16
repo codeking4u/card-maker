@@ -170,7 +170,7 @@ function addImage(url){
         }
         final_width = canvas.width;
         final_height = final_height/ imageRatio;
-        var myImg = myImg.set({ id:"background_img",name:"Background Img",left: 0, top: 0 ,width:600,height:800,selectable: false});
+        var myImg = myImg.set({ id:"background_img",name:"Background Img",left: 0, top: 0 ,width:400,height:600,selectable: false});
         myImg.hoverCursor = 'default';
         canvas.add(myImg); 
         canvas.renderAll();
@@ -189,12 +189,12 @@ function addImage(url){
 function addTexts(heading='Heading',width){
     var o = {
         id:'heading',
-        width: 600,
+        width: 400,
         top: 60,
         left: 7,
         fontSize: 25,
         textAlign: 'center',
-        fixedWidth: 600,
+        fixedWidth: 400,
         selectable: false
     };
     if(width){
@@ -218,14 +218,16 @@ function Addtext(a,b) {
         left: a,
         top: b,
         fontFamily: 'arial black',
-        fill: '#333',
+        fill: $('#text-color').val(),
         fontSize: 20,
         id:id,
     });
     canvas.add(o);
     canvas.bringToFront(o);
-    canvas.setActiveObject(o)
-
+    canvas.setActiveObject(o);
+    o.selectAll();
+    o.enterEditing()
+    //o.hiddenTextarea.focus();
     $('#add_text').removeClass('active');
 }
 

@@ -7,7 +7,7 @@
 	@foreach($card as $card)
 	<div class="main-card-ctn">
 	    <div class="main-card">
-            <canvas id="card_canvas" data-src="{{ asset('storage/publish/'.$card->image_name) }}" width="600" height="800"></canvas>
+            <canvas id="card_canvas" data-src="{{ asset('storage/publish/'.$card->image_name) }}" width="400" height="600"></canvas>
 	    </div>
 	    <div class="main-card-info">
         <input type="file" id="uploadedImg"/>
@@ -182,6 +182,7 @@
     .main-card{
         text-align: center;
         max-width: 600px;
+        width: 50%;
     }
 
     .main-card img{
