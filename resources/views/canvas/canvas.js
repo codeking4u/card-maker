@@ -7,18 +7,15 @@ $(document).ready(function(){
 
     $('#heading').on('keyup',function(){
           cardCanvas.getObjects().forEach(function(o){
-              if(o.id=='heading'){
-                    if (o.width > o.fixedWidth) {
-                        o.fontSize *= o.fixedWidth / (o.width + 1);
-                        o.width = o.fixedWidth;
-                    }
+                if(o.id=='heading'){
+                    var width = o.width;
                     cardCanvas.remove(o);
                     cardCanvas.renderAll();
                     var text = $('#heading').val();
                     
-                    addTexts(text);
-                    console.log(o.width)
-              }
+                    addTexts(text,width);
+                    console.log(width)
+                }
           });
           
           /* var t1 = opt.target;
@@ -70,18 +67,29 @@ function addImage(url){
     
   }
 
-  function addTexts(heading='Heading'){
-    var text1 =  new fabric.Textbox(heading, {
+function addTexts(heading='Heading',width){
+    var o = {
         id:'heading',
         width: 600,
         top: 60,
-        left: 0,
+        left: 7,
         fontSize: 25,
         textAlign: 'center',
         fixedWidth: 600,
         selectable: false
-    });
-      cardCanvas.add(text1);
-  }
+    };
+    if(width){
+        if (width > o.fixedWidth) {
+            o.fontSize *= o.fixedWidth / (width + 50);
+            o.width = o.fixedWidth;
+        }
+    }
+
+    var text1 =  new fabric.Textbox(heading, o);
+    cardCanvas.add(text1);
+    
+}
+
+
 
  
