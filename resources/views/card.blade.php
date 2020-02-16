@@ -11,6 +11,8 @@
 	    </div>
 	    <div class="main-card-info">
         <input type="file" id="uploadedImg"/>
+        <br>
+        <br>
         <!-- text controlss -->
         <button id="add_text">Add Text</button>
             <div class="text-controls">
@@ -81,7 +83,9 @@
             
             <input type='checkbox' name='fonttype'  id="text-cmd-overline" >
                 Overline
-            
+            <br>
+            <br>
+            <button id="removeButton">Remove Selected</button>
             </div>
         </div>
         @endforeach

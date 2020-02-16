@@ -9,6 +9,9 @@ $(document).ready(function(){
     $('#add_text').on('click',function(){
         $(this).toggleClass('active');
     })
+    $('#removeButton').on('click',function(){
+        canvas.getActiveObject().remove()  ;  
+    })
 
     canvas.on('mouse:down', function(options) {
         var a = options.e.offsetX-35;
@@ -134,6 +137,7 @@ $(document).ready(function(){
           });
           canvas.centerObject(image);
           canvas.add(image);
+          canvas.setActiveObject(image);
           canvas.renderAll();
         }
       }
@@ -216,11 +220,11 @@ function Addtext(a,b) {
         fontFamily: 'arial black',
         fill: '#333',
         fontSize: 20,
-        id:id
+        id:id,
     });
     canvas.add(o);
     canvas.bringToFront(o);
-
+    canvas.setActiveObject(o)
 
     $('#add_text').removeClass('active');
 }
